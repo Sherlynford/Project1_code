@@ -16,9 +16,9 @@ public class StudentProfile {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id" , referencedColumnName = "id")
-    @JsonBackReference(value = "user-student")
-    private User user;
+    @JoinColumn(name = "person_id" , referencedColumnName = "id")
+    @JsonBackReference(value = "person-student")
+    private Person person;
 
     private String fullname;
 
@@ -30,11 +30,11 @@ public class StudentProfile {
 
     private String major;
 
-    private Number studentID;
+    private String studentID;
 
-    private Number phoneNumber;
+    private String phoneNumber;
 
-    private String InternDate; 
+    private String internDate; 
 
     private String CV;
 

@@ -15,9 +15,9 @@ public class Blog {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id" , referencedColumnName = "id")
-    @JsonBackReference(value = "user-blog")
-    private User user;
+    @JoinColumn(name = "person_id" , referencedColumnName = "id")
+    @JsonBackReference(value = "person-blog")
+    private Person person;
 
     private String topic;
 

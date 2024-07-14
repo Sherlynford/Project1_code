@@ -15,9 +15,9 @@ public class OrganizationProfile {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id" , referencedColumnName = "id")
-    @JsonBackReference(value = "user-organization")
-    private User user;
+    @JoinColumn(name = "person_id" , referencedColumnName = "id")
+    @JsonBackReference(value = "person-organization")
+    private Person person;
 
     private String logo;
 
@@ -29,7 +29,7 @@ public class OrganizationProfile {
 
     private String email;
 
-    private Number phoneNumber;
+    private String phoneNumber;
 
     @OneToMany(mappedBy = "organizationProfile", fetch = FetchType.LAZY)
     @JsonManagedReference(value = "Organization-job")

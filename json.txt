@@ -1,4 +1,4 @@
-User JSON:
+Person JSON:
 {
     "username": "john_doe",
     "password": "password123",
@@ -7,7 +7,7 @@ User JSON:
 }
 TeacherProfile JSON:
 {
-    "user": {
+    "person": {
         "id": 1
     },
     "fullname": "John Doe",
@@ -19,7 +19,7 @@ TeacherProfile JSON:
 }
 StudentProfile JSON:
 {
-    "user": {
+    "person": {
         "id": 2
     },
     "fullname": "Jane Doe",
@@ -34,7 +34,7 @@ StudentProfile JSON:
 }
 OrganizationProfile JSON:
 {
-    "user": {
+    "person": {
         "id": 3
     },
     "logo": "link_to_logo",
@@ -46,7 +46,7 @@ OrganizationProfile JSON:
 }
 Blog JSON:
 {
-    "user": {
+    "person": {
         "id": 1
     },
     "topic": "Spring Boot Guide",

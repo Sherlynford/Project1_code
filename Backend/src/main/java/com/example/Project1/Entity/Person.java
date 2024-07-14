@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 import lombok.*;
 @Entity
 @Data
-public class User {
+public class Person {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,20 +22,20 @@ public class User {
 
     private String email;
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonManagedReference(value = "user-student")
+    @OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "person-student")
     private StudentProfile studentProfile;
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonManagedReference(value = "user-teacher")
+    @OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "person-teacher")
     private TeacherProfile teacherProfile;
     
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonManagedReference(value = "user-organization")
+    @OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "person-organization")
     private OrganizationProfile organizationProfile;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonManagedReference(value = "user-blog")
+    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "person-blog")
     private List<Blog> blogs;
 
 }

@@ -12,21 +12,21 @@ public class TeacherProfile {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id" , referencedColumnName = "id")
-    @JsonBackReference(value = "user-teacher")
-    private User user;
+    @JoinColumn(name = "person_id" , referencedColumnName = "id")
+    @JsonBackReference(value = "person-teacher")
+    private Person person;
 
     private String fullname;
 
     private String email;
 
-    private Number phoneNumber;
+    private String phoneNumber;
 
     private String faculty;
 
     private String major;
 
-    private Number teacherID;
+    private String teacherID;
 
 
 }
