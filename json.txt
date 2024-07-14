@@ -1,0 +1,95 @@
+User JSON:
+{
+    "username": "john_doe",
+    "password": "password123",
+    "role": "admin",
+    "email": "john.doe@example.com"
+}
+TeacherProfile JSON:
+{
+    "user": {
+        "id": 1
+    },
+    "fullname": "John Doe",
+    "email": "john.doe@example.com",
+    "phoneNumber": "1234567890",
+    "faculty": "Science",
+    "major": "Physics",
+    "teacherID": 1001
+}
+StudentProfile JSON:
+{
+    "user": {
+        "id": 2
+    },
+    "fullname": "Jane Doe",
+    "grade": "A",
+    "email": "jane.doe@example.com",
+    "faculty": "Engineering",
+    "major": "Computer Science",
+    "studentID": 2001,
+    "phoneNumber": "9876543210",
+    "internDate": "2023-05-01",
+    "cv": "link_to_cv"
+}
+OrganizationProfile JSON:
+{
+    "user": {
+        "id": 3
+    },
+    "logo": "link_to_logo",
+    "name": "Tech Corp",
+    "detail": "A tech company",
+    "address": "123 Tech Lane",
+    "email": "info@techcorp.com",
+    "phoneNumber": "1234567890"
+}
+Blog JSON:
+{
+    "user": {
+        "id": 1
+    },
+    "topic": "Spring Boot Guide",
+    "detail": "A comprehensive guide to Spring Boot.",
+    "img": "link_to_image",
+    "date": "2023-06-15",
+    "link": "link_to_blog",
+    "contract": "john.doe@example.com"
+}
+Job JSON:
+{
+    "organizationProfile": {
+        "id": 1
+    },
+    "name": "Software Developer",
+    "detail": "Develop software applications",
+    "category": "IT",
+    "qualification": "Bachelor's Degree",
+    "timeWorkingDate": "Full-time",
+    "numberApplication": 5,
+    "benefitSalary": "50000-70000",
+    "applicationTime": "2023-07-15"
+}
+JobApplication JSON:
+{
+    "studentProfile": {
+        "id": 1
+    },
+    "job": {
+        "id": 1
+    },
+    "status": "Applied",
+    "dateTime": "2023-07-10T10:00:00"
+}
+Interview JSON:
+{
+    "jobApplication": {
+        "id": 1
+    },
+    "date": "2023-07-20",
+    "time": "10:00",
+    "type": "Technical",
+    "detail": "Initial technical interview",
+    "linkAddress": "http://interview.link"
+}
+
