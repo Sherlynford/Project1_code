@@ -1,4 +1,5 @@
-Person JSON:
+Person JSON: 
+http://localhost:8080/api/persons/
 {
     "username": "john_doe",
     "password": "password123",
@@ -6,6 +7,7 @@ Person JSON:
     "email": "john.doe@example.com"
 }
 TeacherProfile JSON:
+http://localhost:8080/api/teachers/
 {
     "person": {
         "id": 1
@@ -18,6 +20,7 @@ TeacherProfile JSON:
     "teacherID": 1001
 }
 StudentProfile JSON:
+http://localhost:8080/api/students/
 {
     "person": {
         "id": 2
@@ -33,6 +36,7 @@ StudentProfile JSON:
     "cv": "link_to_cv"
 }
 OrganizationProfile JSON:
+http://localhost:8080/api/organizations/
 {
     "person": {
         "id": 3
@@ -45,6 +49,7 @@ OrganizationProfile JSON:
     "phoneNumber": "1234567890"
 }
 Blog JSON:
+http://localhost:8080/api/blogs/
 {
     "person": {
         "id": 1
@@ -56,6 +61,7 @@ Blog JSON:
     "contract": "john.doe@example.com"
 }
 Job JSON:
+http://localhost:8080/api/jobs/
 {
     "organizationProfile": {
         "id": 1
@@ -70,6 +76,7 @@ Job JSON:
     "applicationTime": "2023-07-15"
 }
 JobApplication JSON:
+http://localhost:8080/api/jobApplications/
 {
     "studentProfile": {
         "id": 1
@@ -80,6 +87,7 @@ JobApplication JSON:
     "status": "Applied",
 }
 Interview JSON:
+http://localhost:8080/api/interviews/
 {
     "jobApplication": {
         "id": 1
