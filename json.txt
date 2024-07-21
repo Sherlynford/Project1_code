@@ -52,7 +52,6 @@ Blog JSON:
     "topic": "Spring Boot Guide",
     "detail": "A comprehensive guide to Spring Boot.",
     "img": "link_to_image",
-    "date": "2023-06-15",
     "link": "link_to_blog",
     "contract": "john.doe@example.com"
 }
@@ -79,15 +78,13 @@ JobApplication JSON:
         "id": 1
     },
     "status": "Applied",
-    "dateTime": "2023-07-10T10:00:00"
 }
 Interview JSON:
 {
     "jobApplication": {
         "id": 1
     },
-    "date": "2023-07-20",
-    "time": "10:00",
+    "date": "2023-07-20 10:00 AM"
     "type": "Technical",
     "detail": "Initial technical interview",
     "linkAddress": "http://interview.link"

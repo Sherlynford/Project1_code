@@ -3,6 +3,7 @@ package com.example.Project1.Entity;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*;
@@ -40,6 +41,7 @@ public class StudentProfile {
 
     @OneToMany(mappedBy = "studentProfile", fetch = FetchType.LAZY)
     @JsonManagedReference(value = "student-apply")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<JobApplication> jobApplications;
 
 }

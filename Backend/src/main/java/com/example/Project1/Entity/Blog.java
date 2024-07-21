@@ -1,6 +1,6 @@
 package com.example.Project1.Entity;
 
-import java.time.Instant;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
@@ -25,7 +25,7 @@ public class Blog {
 
     private String img;
 
-    private Instant date;
+    private LocalDate date;
 
     private String link;
 

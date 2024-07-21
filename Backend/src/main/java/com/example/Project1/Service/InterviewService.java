@@ -31,8 +31,7 @@ public class InterviewService {
     public Interview updateInterview(Interview newInterview, Long id) {
         return interviewRepository.findById(id)
                 .map(interview -> {
-                    interview.setDate(newInterview.getDate()); 
-                    interview.setTime(newInterview.getTime()); 
+                    interview.setDateTime(newInterview.getDateTime());
                     interview.setType(newInterview.getType());
                     interview.setDetail(newInterview.getDetail());
                     interview.setLinkAddress(newInterview.getLinkAddress());

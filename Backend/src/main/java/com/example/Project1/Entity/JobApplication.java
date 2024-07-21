@@ -4,6 +4,7 @@ package com.example.Project1.Entity;
 import java.time.Instant;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*;
@@ -33,6 +34,7 @@ public class JobApplication {
 
     @OneToOne(mappedBy = "jobApplication", fetch = FetchType.LAZY)
     @JsonManagedReference(value = "apply-interview")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Interview interviews;
 
 }

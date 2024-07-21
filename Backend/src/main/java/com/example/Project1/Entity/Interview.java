@@ -17,9 +17,7 @@ public class Interview {
     @JsonBackReference(value = "apply-interview")
     private JobApplication jobApplication;
 
-    private String date; 
-
-    private String time; 
+    private String dateTime; 
 
     private String type;
 

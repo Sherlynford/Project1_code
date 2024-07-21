@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ public class JobApplicationService {
     private final JobApplicationRepository jobApplicationRepository;
 
     public JobApplication createJobApplication(JobApplication jobApplication) {
+        jobApplication.setDateTime(Instant.now());
         return jobApplicationRepository.save(jobApplication);
     }
 
@@ -32,7 +34,7 @@ public class JobApplicationService {
         return jobApplicationRepository.findById(id)
                 .map(jobApplication -> {
                     jobApplication.setStatus(newJobApplication.getStatus());
-                    jobApplication.setDateTime(newJobApplication.getDateTime()); 
+                    jobApplication.setDateTime(Instant.now());
 
                     return jobApplicationRepository.save(jobApplication);
                 })
