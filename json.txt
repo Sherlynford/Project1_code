@@ -92,7 +92,7 @@ http://localhost:8080/api/interviews/
     "jobApplication": {
         "id": 1
     },
-    "date": "2023-07-20 10:00 AM"
+    "dateTime": "2023-07-20 10:00 AM"
     "type": "Technical",
     "detail": "Initial technical interview",
     "linkAddress": "http://interview.link"
