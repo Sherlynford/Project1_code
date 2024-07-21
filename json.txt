@@ -83,8 +83,7 @@ http://localhost:8080/api/jobApplications/
     },
     "job": {
         "id": 1
-    },
-    "status": "Applied",
+    }
 }
 Interview JSON:
 http://localhost:8080/api/interviews/

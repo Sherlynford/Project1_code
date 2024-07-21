@@ -17,8 +17,9 @@ public class JobApplicationService {
 
     private final JobApplicationRepository jobApplicationRepository;
 
-    public JobApplication createJobApplication(JobApplication jobApplication) {
+    public JobApplication createJobApplication(JobApplication jobApplication) { // -1 in numberApplication of job and cant add if numberApplication = 0 and cant add if job applicationTime end
         jobApplication.setDateTime(Instant.now());
+        jobApplication.setStatus("Applied");
         return jobApplicationRepository.save(jobApplication);
     }
 

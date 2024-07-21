@@ -34,7 +34,7 @@ public class Job {
 
     private String benefitSalary;
 
-    private String applicationTime; 
+    private String applicationTime;  // change to date type
 
     @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
     @JsonManagedReference(value = "job-apply")
