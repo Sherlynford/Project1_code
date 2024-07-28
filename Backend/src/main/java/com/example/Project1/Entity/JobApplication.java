@@ -4,6 +4,7 @@ package com.example.Project1.Entity;
 import java.time.Instant;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -29,7 +30,8 @@ public class JobApplication {
     private Job job;
 
     private String status;
-
+    
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "UTC")
     private Instant dateTime;
 
     @OneToOne(mappedBy = "jobApplication", fetch = FetchType.LAZY)

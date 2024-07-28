@@ -26,6 +26,7 @@ public class TeacherProfile {
 
     private String major;
 
+    @Column(unique = true) 
     private String teacherID;
 
 

@@ -1,6 +1,12 @@
 package com.example.Project1.Entity;
 
+import java.time.LocalDateTime;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,7 +23,9 @@ public class Interview {
     @JsonBackReference(value = "apply-interview")
     private JobApplication jobApplication;
 
-    private String dateTime; 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime dateTime; 
 
     private String type;
 

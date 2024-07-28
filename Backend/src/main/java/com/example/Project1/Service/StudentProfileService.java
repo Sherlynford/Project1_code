@@ -38,7 +38,8 @@ public class StudentProfileService {
                     studentProfile.setMajor(newStudentProfile.getMajor());
                     studentProfile.setStudentID(newStudentProfile.getStudentID());
                     studentProfile.setPhoneNumber(newStudentProfile.getPhoneNumber());
-                    studentProfile.setInternDate(newStudentProfile.getInternDate());
+                    studentProfile.setInternStartDate(newStudentProfile.getInternStartDate());
+                    studentProfile.setInternEndDate(newStudentProfile.getInternEndDate());
                     studentProfile.setCV(newStudentProfile.getCV());
                     return studentProfileRepository.save(studentProfile);
                 })

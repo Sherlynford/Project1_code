@@ -1,7 +1,11 @@
 package com.example.Project1.Entity;
+import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -30,11 +34,13 @@ public class Job {
 
     private String timeWorkingDate;
 
-    private Number numberApplication;
+    private Integer numberApplication;
 
     private String benefitSalary;
 
-    private String applicationTime;  // change to date type
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate applicationTime; 
 
     @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
     @JsonManagedReference(value = "job-apply")

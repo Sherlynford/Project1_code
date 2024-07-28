@@ -3,7 +3,6 @@ package com.example.Project1;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// add new table name ManualJobApplication
 @SpringBootApplication
 public class Project1Application {
 

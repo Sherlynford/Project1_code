@@ -1,8 +1,12 @@
 package com.example.Project1.Entity;
 
+import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -31,11 +35,18 @@ public class StudentProfile {
 
     private String major;
 
+    @Column(unique = true) 
     private String studentID;
 
     private String phoneNumber;
 
-    private String internDate; 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate internStartDate; 
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate internEndDate;
 
     private String CV;
 
@@ -43,5 +54,10 @@ public class StudentProfile {
     @JsonManagedReference(value = "student-apply")
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private List<JobApplication> jobApplications;
+
+    @OneToMany(mappedBy = "studentProfile", fetch = FetchType.LAZY)
+    @JsonManagedReference(value = "student-ManualApply")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private List<ManualJobApplication> manualJobApplications;
 
 }

@@ -3,7 +3,7 @@ http://localhost:8080/api/persons/
 {
     "username": "john_doe",
     "password": "password123",
-    "role": "admin",
+    "role": "teacher",
     "email": "john.doe@example.com"
 }
 TeacherProfile JSON:
@@ -32,7 +32,8 @@ http://localhost:8080/api/students/
     "major": "Computer Science",
     "studentID": 2001,
     "phoneNumber": "9876543210",
-    "internDate": "2023-05-01",
+    "internStartDate": "2023-05-01",
+    "internEndDate": "2023-08-01",
     "cv": "link_to_cv"
 }
 OrganizationProfile JSON:

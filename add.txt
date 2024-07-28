@@ -1,0 +1,15 @@
+Done
+1.add new table 'ManualJobApplication' entity
+2.change type class applicationTime in job entity
+9.some data cannot be null and can not be use two time
+3.check Email if already exist cant create 
+10.change some data to LocalDate
+
+Not Done
+8.change status jobApplication 'interview' when organization click create interview  ,
+                                'Accept' when organization accept person Application , 
+                                'Confirm' when teacher click confirm
+6.cant add if job applicationTime end
+4.-1 in numberApplication of job when create jobApplication
+5.cant add if numberApplication = 0 
+7. when click applies that job u cant applies it again
