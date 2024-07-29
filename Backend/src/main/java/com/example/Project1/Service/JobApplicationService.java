@@ -87,6 +87,13 @@ public class JobApplicationService {
     public JobApplication chooseJobApplication(Long id) {
         return jobApplicationRepository.findById(id)
                 .map(jobApplication -> {
+                    List<JobApplication> existingChosenApplications = jobApplicationRepository.findByStudentProfileAndStatus(
+                            jobApplication.getStudentProfile(), "Choose");
+                    
+                    if (!existingChosenApplications.isEmpty()) {
+                        throw new IllegalStateException("Student has already choose job");
+                    }
+    
                     Job job = jobApplication.getJob();
                     if (job.getNumberApplication() > 0) {
                         job.setNumberApplication(job.getNumberApplication() - 1);

@@ -14,6 +14,7 @@ Done
 6.cant add if job applicationTime end
 5.cant add if numberApplication = 0 
 7. when click applies that job u cant applies it again
+11.student cant have jobApplication status 'choose' more than one
 
 Not Done
-11.student cant have jobApplication status 'choose' more than one
+
