@@ -6,7 +6,10 @@ Done
 10.change some data to LocalDate
 8.change status jobApplication 'interview' when organization click create interview  ,
                                 'Accept' when organization accept person Application , 
-                                'Confirm' when teacher click confirm
+                                'Confirm' when teacher click confirm job that student choose,
+                                'Decline', when organization decline person Application
+                                'Choose', when student choose job that got accept
+                                'Cancel'  when student cancel job
 
 Not Done
 6.cant add if job applicationTime end

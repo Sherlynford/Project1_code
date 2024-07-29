@@ -1,7 +1,7 @@
 package com.example.Project1.Service;
 
-import com.example.Project1.Entity.Job;
-import com.example.Project1.Repository.JobRepository;
+// import com.example.Project1.Entity.Job;
+// import com.example.Project1.Repository.JobRepository;
 import com.example.Project1.Entity.JobApplication;
 import com.example.Project1.Repository.JobApplicationRepository;
 
@@ -19,7 +19,7 @@ public class JobApplicationService {
 
     private final JobApplicationRepository jobApplicationRepository;
 
-    private final JobRepository jobRepository;
+    // private final JobRepository jobRepository;
 
     public JobApplication createJobApplication(JobApplication jobApplication) { // -1 in numberApplication of job and cant add if numberApplication = 0 and cant add if job applicationTime end
         jobApplication.setDateTime(Instant.now());
@@ -57,15 +57,27 @@ public class JobApplicationService {
     }
     
     public JobApplication interviewJobApplication(Long id) {
-        return updateJobApplicationStatus(id, "interview");
+        return updateJobApplicationStatus(id, "interview"); // organization click create interview
     }
     
     public JobApplication acceptJobApplication(Long id ) {
-        return updateJobApplicationStatus(id, "Accept");
+        return updateJobApplicationStatus(id, "Accept"); // organization accept person Application
+    }
+
+    public JobApplication declineJobApplication(Long id) {
+        return updateJobApplicationStatus(id, "Decline"); // organization decline person Application
+    }
+
+    public JobApplication chooseJobApplication(Long id) {
+        return updateJobApplicationStatus(id, "Choose"); // student choose job that got accept
+    }
+
+    public JobApplication cancelJobApplication(Long id) {
+        return updateJobApplicationStatus(id, "Cancel"); // student cancel job
     }
     
     public JobApplication confirmJobApplication(Long id) {
-        return updateJobApplicationStatus(id, "Confirm");
+        return updateJobApplicationStatus(id, "Confirm"); // teacher click confirm job that student choose
     }
     
     public void deleteAllJobApplications() {

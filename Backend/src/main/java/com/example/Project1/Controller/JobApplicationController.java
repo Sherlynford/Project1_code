@@ -1,6 +1,6 @@
 package com.example.Project1.Controller;
 
-import com.example.Project1.Entity.Job;
+// import com.example.Project1.Entity.Job;
 import com.example.Project1.Entity.JobApplication;
 import com.example.Project1.Service.JobApplicationService;
 
@@ -55,6 +55,24 @@ public class JobApplicationController {
     @PutMapping("/{id}/accept")
     public ResponseEntity<JobApplication> acceptJobApplication(@PathVariable Long id) {
         JobApplication updatedJobApplication = jobApplicationService.acceptJobApplication(id);
+        return new ResponseEntity<>(updatedJobApplication, HttpStatus.OK);
+    }
+    
+    @PutMapping("/{id}/decline")
+    public ResponseEntity<JobApplication> declineJobApplication(@PathVariable Long id) {
+        JobApplication updatedJobApplication = jobApplicationService.declineJobApplication(id);
+        return new ResponseEntity<>(updatedJobApplication, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/choose")
+    public ResponseEntity<JobApplication> chooseJobApplication(@PathVariable Long id) {
+        JobApplication updatedJobApplication = jobApplicationService.chooseJobApplication(id);
+        return new ResponseEntity<>(updatedJobApplication, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/cancel")
+    public ResponseEntity<JobApplication> cancelJobApplication(@PathVariable Long id) {
+        JobApplication updatedJobApplication = jobApplicationService.cancelJobApplication(id);
         return new ResponseEntity<>(updatedJobApplication, HttpStatus.OK);
     }
 

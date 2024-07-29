@@ -31,7 +31,7 @@ public class JobApplication {
 
     private String status;
     
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "UTC")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Bangkok")
     private Instant dateTime;
 
     @OneToOne(mappedBy = "jobApplication", fetch = FetchType.LAZY)
