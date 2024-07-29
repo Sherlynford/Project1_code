@@ -4,6 +4,7 @@ import com.example.Project1.Entity.Job;
 import com.example.Project1.Entity.JobApplication;
 import com.example.Project1.Repository.JobApplicationRepository;
 import com.example.Project1.Repository.JobRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,11 +24,18 @@ public class JobApplicationService {
     @Transactional
     public JobApplication createJobApplication(JobApplication jobApplication) {
         Long jobId = jobApplication.getJob().getId();
+        Long studentId = jobApplication.getStudentProfile().getId();
+
         Job job = jobRepository.findById(jobId)
                 .orElseThrow(() -> new IllegalStateException("Job not found"));
 
         if (job.getNumberApplication() == 0 || !job.getApplicationTime().isAfter(LocalDate.now())) {
             throw new IllegalStateException("Cannot apply for the job");
+         }
+
+         Optional<JobApplication> existingApplication = jobApplicationRepository.findByStudentProfileIdAndJobId(studentId, jobId);
+         if (existingApplication.isPresent()) {
+             throw new IllegalStateException("Student has already applied for this job.");
          }
 
         jobApplication.setDateTime(Instant.now());
