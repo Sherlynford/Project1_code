@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
@@ -24,8 +25,12 @@ public class Job {
     @JsonBackReference(value = "Organization-job")
     private OrganizationProfile organizationProfile;
 
+    @NotBlank(message = "cannot be null or empty")
+    @Column(nullable = false)  
     private String name;
 
+    @NotBlank(message = "cannot be null or empty")
+    @Column(nullable = false)  
     private String detail;
 
     private String category;

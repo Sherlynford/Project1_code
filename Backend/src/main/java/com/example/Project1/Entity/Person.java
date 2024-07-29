@@ -25,6 +25,8 @@ public class Person {
     @Column(nullable = false, unique = true)   
     private String password;
 
+    @NotBlank(message = "cannot be null or empty")
+    @Column(nullable = false)  
     private String role;
 
     @NotBlank(message = "Email cannot be null or empty")

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
@@ -27,10 +28,16 @@ public class Interview {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime dateTime; 
 
+    @NotBlank(message = "cannot be null or empty")
+    @Column(nullable = false)
     private String type;
 
+    @NotBlank(message = "cannot be null or empty")
+    @Column(nullable = false)  
     private String detail;
 
+    @NotBlank(message = "cannot be null or empty")
+    @Column(nullable = false)  
     private String linkAddress;
 
 }
