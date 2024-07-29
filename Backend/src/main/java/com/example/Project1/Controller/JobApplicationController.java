@@ -1,5 +1,6 @@
 package com.example.Project1.Controller;
 
+import com.example.Project1.Entity.Job;
 import com.example.Project1.Entity.JobApplication;
 import com.example.Project1.Service.JobApplicationService;
 
@@ -45,9 +46,33 @@ public class JobApplicationController {
         return new ResponseEntity<>(updatedJobApplication, HttpStatus.OK);
     }
 
+    @PutMapping("/{id}/interview")
+    public ResponseEntity<JobApplication> interviewJobApplication(@PathVariable Long id) {
+        JobApplication updatedJobApplication = jobApplicationService.interviewJobApplication(id);
+        return new ResponseEntity<>(updatedJobApplication, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/accept")
+    public ResponseEntity<JobApplication> acceptJobApplication(@PathVariable Long id) {
+        JobApplication updatedJobApplication = jobApplicationService.acceptJobApplication(id);
+        return new ResponseEntity<>(updatedJobApplication, HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}/confirm")
+    public ResponseEntity<JobApplication> confirmJobApplication(@PathVariable Long id) {
+        JobApplication updatedJobApplication = jobApplicationService.confirmJobApplication(id);
+        return new ResponseEntity<>(updatedJobApplication, HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteJobApplication(@PathVariable Long id) {
         jobApplicationService.deleteJobApplication(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/")
+    public ResponseEntity<Void> deleteAllJobApplications() {
+        jobApplicationService.deleteAllJobApplications();
         return ResponseEntity.noContent().build();
     }
 }

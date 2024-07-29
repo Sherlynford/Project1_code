@@ -92,9 +92,23 @@ http://localhost:8080/api/interviews/
     "jobApplication": {
         "id": 1
     },
-    "dateTime": "2023-07-20 10:00 AM"
+    "dateTime": "2023-07-20 10:00",
     "type": "Technical",
     "detail": "Initial technical interview",
     "linkAddress": "http://interview.link"
 }
 
+ManualJobApplication JSON:
+http://localhost:8000/api/ManualJobApplications/
+{
+    "studentProfile": {
+        "id": 1
+    },
+    "organizationName": "Tech Corp",
+    "organizationAddress": "123 Tech Street, Innovation City",
+    "organizationContract": "Jane Doe",
+    "jobName": "Software Engineer",
+    "applicationStatus": "Pending",
+    "applicationDateTime": "2024-07-18",
+    "interviewDate": "2024-07-25 14:30"
+}
