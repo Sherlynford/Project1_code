@@ -1,15 +1,15 @@
 package com.example.Project1.Service;
 
-// import com.example.Project1.Entity.Job;
-// import com.example.Project1.Repository.JobRepository;
+import com.example.Project1.Entity.Job;
 import com.example.Project1.Entity.JobApplication;
 import com.example.Project1.Repository.JobApplicationRepository;
-
+import com.example.Project1.Repository.JobRepository;
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,10 +18,18 @@ import java.util.Optional;
 public class JobApplicationService {
 
     private final JobApplicationRepository jobApplicationRepository;
+    private final JobRepository jobRepository;
 
-    // private final JobRepository jobRepository;
+    @Transactional
+    public JobApplication createJobApplication(JobApplication jobApplication) {
+        Long jobId = jobApplication.getJob().getId();
+        Job job = jobRepository.findById(jobId)
+                .orElseThrow(() -> new IllegalStateException("Job not found"));
 
-    public JobApplication createJobApplication(JobApplication jobApplication) { // -1 in numberApplication of job and cant add if numberApplication = 0 and cant add if job applicationTime end
+        if (job.getNumberApplication() == 0 || !job.getApplicationTime().isAfter(LocalDate.now())) {
+            throw new IllegalStateException("Cannot apply for the job");
+         }
+
         jobApplication.setDateTime(Instant.now());
         jobApplication.setStatus("Applied");
         return jobApplicationRepository.save(jobApplication);
@@ -40,7 +48,6 @@ public class JobApplicationService {
                 .map(jobApplication -> {
                     jobApplication.setStatus(status);
                     jobApplication.setDateTime(Instant.now());
-    
                     return jobApplicationRepository.save(jobApplication);
                 })
                 .orElseGet(() -> {
@@ -51,35 +58,47 @@ public class JobApplicationService {
                     return jobApplicationRepository.save(newJobApplication);
                 });
     }
-    
+
     public JobApplication updateJobApplication(JobApplication newJobApplication, Long id) {
         return updateJobApplicationStatus(id, newJobApplication.getStatus());
     }
-    
+
     public JobApplication interviewJobApplication(Long id) {
-        return updateJobApplicationStatus(id, "interview"); // organization click create interview
+        return updateJobApplicationStatus(id, "interview");
     }
-    
-    public JobApplication acceptJobApplication(Long id ) {
-        return updateJobApplicationStatus(id, "Accept"); // organization accept person Application
+
+    public JobApplication acceptJobApplication(Long id) {
+        return updateJobApplicationStatus(id, "Accept");
     }
 
     public JobApplication declineJobApplication(Long id) {
-        return updateJobApplicationStatus(id, "Decline"); // organization decline person Application
+        return updateJobApplicationStatus(id, "Decline");
     }
 
+    @Transactional
     public JobApplication chooseJobApplication(Long id) {
-        return updateJobApplicationStatus(id, "Choose"); // student choose job that got accept
+        return jobApplicationRepository.findById(id)
+                .map(jobApplication -> {
+                    Job job = jobApplication.getJob();
+                    if (job.getNumberApplication() > 0) {
+                        job.setNumberApplication(job.getNumberApplication() - 1);
+                        jobRepository.save(job);
+                    } else {
+                        throw new IllegalStateException("Cannot choose job application because the number of applications is zero.");
+                    }
+                    return updateJobApplicationStatus(id, "Choose");
+                })
+                .orElseThrow(() -> new IllegalStateException("Job application not found"));
     }
 
     public JobApplication cancelJobApplication(Long id) {
-        return updateJobApplicationStatus(id, "Cancel"); // student cancel job
+        return updateJobApplicationStatus(id, "Cancel");
     }
-    
+
     public JobApplication confirmJobApplication(Long id) {
-        return updateJobApplicationStatus(id, "Confirm"); // teacher click confirm job that student choose
+        return updateJobApplicationStatus(id, "Confirm");
     }
-    
+
     public void deleteAllJobApplications() {
         jobApplicationRepository.deleteAll();
     }
