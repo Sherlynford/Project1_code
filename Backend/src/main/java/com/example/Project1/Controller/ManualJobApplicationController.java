@@ -45,6 +45,16 @@ public class ManualJobApplicationController {
         return new ResponseEntity<>(updatedManualJobApplication, HttpStatus.OK);
     }
 
+    @PutMapping("/{id}/confirm")
+    public ResponseEntity<ManualJobApplication> confirmManualJobApplication(@PathVariable Long id) {
+        try {
+            ManualJobApplication confirmedManualJobApplication = manualJobApplicationService.confirmManualJobApplication(id);
+            return new ResponseEntity<>(confirmedManualJobApplication, HttpStatus.OK);
+        } catch (IllegalStateException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteManualJobApplication(@PathVariable Long id) {
         manualJobApplicationService.deleteManualJobApplication(id);

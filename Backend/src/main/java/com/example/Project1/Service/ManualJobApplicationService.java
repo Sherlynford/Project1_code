@@ -3,6 +3,7 @@ package com.example.Project1.Service;
 import com.example.Project1.Entity.ManualJobApplication;
 import com.example.Project1.Repository.ManualJobApplicationRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -44,6 +45,16 @@ public class ManualJobApplicationService {
                     newManualJobApplication.setId(id);
                     return manualJobApplicationRepository.save(newManualJobApplication);
                 });
+    }
+
+    @Transactional
+    public ManualJobApplication confirmManualJobApplication(Long id) {
+        return manualJobApplicationRepository.findById(id)
+                .map(manualJobApplication -> {
+                    manualJobApplication.setApplicationStatus("Confirm");
+                    return manualJobApplicationRepository.save(manualJobApplication);
+                })
+                .orElseThrow(() -> new IllegalStateException("Manual job application not found"));
     }
 
     public void deleteManualJobApplication(Long id) {
