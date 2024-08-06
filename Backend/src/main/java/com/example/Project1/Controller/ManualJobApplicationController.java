@@ -45,6 +45,16 @@ public class ManualJobApplicationController {
         return new ResponseEntity<>(updatedManualJobApplication, HttpStatus.OK);
     }
 
+    @PutMapping("/{id}/choose")
+    public ResponseEntity<ManualJobApplication> chooseManualJobApplication(@PathVariable Long id) {
+        try {
+            ManualJobApplication chosenApplication = manualJobApplicationService.chooseManualJobApplication(id);
+            return new ResponseEntity<>(chosenApplication, HttpStatus.OK);
+        } catch (IllegalStateException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+    }
+    
     @PutMapping("/{id}/confirm")
     public ResponseEntity<ManualJobApplication> confirmManualJobApplication(@PathVariable Long id) {
         try {

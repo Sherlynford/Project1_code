@@ -18,7 +18,7 @@ public class TeacherProfile {
 
     private String fullname;
 
-    private String email;
+    private String contract;
 
     private String phoneNumber;
 

@@ -38,8 +38,8 @@ public class ManualJobApplication {
     private String JobName;
 
     @NotBlank(message = "cannot be null or empty")
-    @Column(nullable = false)  
-    private String ApplicationStatus;
+    @Column(nullable = false,name = "applicationStatus")  
+    private String applicationStatus;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

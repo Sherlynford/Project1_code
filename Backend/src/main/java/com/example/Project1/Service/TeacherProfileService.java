@@ -32,7 +32,7 @@ public class TeacherProfileService {
         return teacherProfileRepository.findById(id)
                 .map(teacherProfile -> {
                     teacherProfile.setFullname(newTeacherProfile.getFullname());
-                    teacherProfile.setEmail(newTeacherProfile.getEmail());
+                    teacherProfile.setContract(newTeacherProfile.getContract());
                     teacherProfile.setPhoneNumber(newTeacherProfile.getPhoneNumber());
                     teacherProfile.setFaculty(newTeacherProfile.getFaculty());
                     teacherProfile.setMajor(newTeacherProfile.getMajor());

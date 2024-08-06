@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.*;
@@ -18,11 +17,6 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "person_id" , referencedColumnName = "id")
-    @JsonBackReference(value = "person-blog")
-    private Person person;
 
     @NotBlank(message = "cannot be null or empty")
     @Column(nullable = false)  

@@ -29,7 +29,9 @@ public class StudentProfile {
 
     private String grade;
 
-    private String email;
+    private String year;
+
+    private String contract;
 
     private String faculty;
 
@@ -49,11 +51,6 @@ public class StudentProfile {
     private LocalDate internEndDate;
 
     private String CV;
-
-    @OneToMany(mappedBy = "studentProfile", fetch = FetchType.LAZY)
-    @JsonManagedReference(value = "student-apply")
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private List<JobApplication> jobApplications;
 
     @OneToMany(mappedBy = "studentProfile", fetch = FetchType.LAZY)
     @JsonManagedReference(value = "student-ManualApply")

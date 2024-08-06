@@ -33,7 +33,7 @@ public class StudentProfileService {
                 .map(studentProfile -> {
                     studentProfile.setFullname(newStudentProfile.getFullname());
                     studentProfile.setGrade(newStudentProfile.getGrade());
-                    studentProfile.setEmail(newStudentProfile.getEmail());
+                    studentProfile.setContract(newStudentProfile.getContract());
                     studentProfile.setFaculty(newStudentProfile.getFaculty());
                     studentProfile.setMajor(newStudentProfile.getMajor());
                     studentProfile.setStudentID(newStudentProfile.getStudentID());

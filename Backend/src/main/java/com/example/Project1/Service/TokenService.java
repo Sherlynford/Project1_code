@@ -31,8 +31,6 @@ public class TokenService {
     claims.put("role", person.getRole());
     claims.put("studentProfile", person.getStudentProfile());
     claims.put("teacherProfile", person.getTeacherProfile());
-    claims.put("organizationProfile", person.getOrganizationProfile());
-    claims.put("blogs", person.getBlogs());
 
     return Jwts.builder()
             .setClaims(claims)
