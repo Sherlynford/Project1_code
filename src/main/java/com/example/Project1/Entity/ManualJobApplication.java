@@ -43,9 +43,9 @@ public class ManualJobApplication {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate applicationDateTime;
+    private LocalDate ApplicationDateTime;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime interviewDate;
+    private LocalDateTime InterviewDate;
 }
